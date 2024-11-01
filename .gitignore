@@ -1,3 +1,4 @@
 # Ignore bin e obj em todos os projetos
 /**/bin/
 /**/obj/
+/Migrations/**/
