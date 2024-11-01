@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekShopping.ProductAPI.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20241031195411_AddProductDataTableOnDB")]
+    [Migration("20241101152942_AddProductDataTableOnDB")]
     partial class AddProductDataTableOnDB
     {
         /// <inheritdoc />
@@ -58,7 +58,7 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasColumnName("name");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(65,30)")
+                        .HasColumnType("decimal(10, 2)")
                         .HasColumnName("price");
 
                     b.HasKey("Id");

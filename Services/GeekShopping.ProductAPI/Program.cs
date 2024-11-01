@@ -15,9 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MySQLContext>(
     options => options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 31)))
 );
-IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
-builder.Services.AddSingleton(mapper);
-AutoMapper.ServiceCollectionExtensions.AddAutoMapper(builder.Services, AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
