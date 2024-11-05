@@ -26,7 +26,7 @@ namespace GeekShopping.ProductAPI.Controller
     public async Task<ActionResult<ProductDTO>> FindById(long id)
     {
       var product = await _repository.FindById(id);
-      if (product == null) return NotFound();
+      if (product.Id <= 0) return NotFound();
       return Ok(product);
     }
 
@@ -53,9 +53,6 @@ namespace GeekShopping.ProductAPI.Controller
       var status = await _repository.Delete(id);
       if (!status) return BadRequest();
       return NoContent();
-      // var product = await _repository.D(id);
-      // if (product == null) return NotFound();
-      // return Ok(product);
     }
   }
 }
